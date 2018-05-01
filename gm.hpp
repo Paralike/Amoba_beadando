@@ -9,7 +9,7 @@
 
 class gm{
 protected:
-    std::vector<widget*> w;
+    std::vector<std::vector<widget*>> w;
 public:
     void jatek();
 };
