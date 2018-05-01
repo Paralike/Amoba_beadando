@@ -19,6 +19,6 @@ std::string *widget::getactual() {return actual;}
 
 bool widget::getterjeszkedve(){return terjeszkedve;}
 
-
+int widget::getallapot(){return allapot;}
 
 //void widget::setertek(int ert){ertek=ert;}

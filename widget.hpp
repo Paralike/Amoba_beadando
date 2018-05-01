@@ -17,9 +17,10 @@ protected:
     int ertek;
     std::string actual[2];
     bool terjeszkedve; //a widgeten kívül csinál-e valamit ami miatt blokkolhatja egyik a másikat
+    int allapot; //ha 1 akkor a felhasználóé ha 2 akkor a gépé
 public:
     widget(int x, int y, int length,int height);
-    virtual bool ertekel(int egerx, int egery, int& kivalasztottelem)=0;
+    virtual bool ertekel(int egerx, int egery)=0;
     virtual void rajzol() = 0;
     virtual void kap(genv::event ev) = 0;
     virtual void setkijelolve(bool kij){};
@@ -33,6 +34,8 @@ public:
     virtual void sete(std::string*,std::string*){}; //e a kivalasztott vectorbeli elemek egy tombje
     virtual std::vector<std::string> gete(){};
     virtual void torole(int){};
+    virtual void beallito(int){};
+    virtual int getallapot();
 };
 
 #endif // WIDGET_HPP_INCLUDED

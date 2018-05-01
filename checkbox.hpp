@@ -5,12 +5,14 @@
 #include "widget.hpp"
 
 class checkbox : public widget {
-    bool allapot;
+
 public:
     checkbox(int x, int y, int magassag, int szelesseg);
     virtual void rajzol() ;
-    virtual bool ertekel(int, int, int& );
+    virtual bool ertekel(int, int );
     void kap(genv::event ev){};
+    void beallito(int);
+
 };
 
 
