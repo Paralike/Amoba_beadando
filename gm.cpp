@@ -89,7 +89,7 @@ void gm::jatek()
             //std::cout << kivalasztottelem<<std::endl;
             w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
 
-            szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
+            //szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
             //std::cout << counter<<std::endl;
             counter=0;
         }
@@ -111,52 +111,136 @@ void gm::jatek()
 
 void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vector<widget*>> w, int szemely,int &counter)
 {
+    counter=0;
+
+    //függőleges vonal
     int maxi=0;
-    for(int i=1;i<w.size();i++)
+    for(int i=1; i<w.size(); i++)
     {
         if(w[i-1][aktualislepes_i]->getallapot()==szemely)
-        maxi++;
+            maxi++;
+        if(counter<maxi)
+            counter=maxi;
         if(w[i-1][aktualislepes_i]->getallapot()!=szemely)
+            maxi=0;
 
     }
-    if(maxi>counter)
-        counter=maxi;
-        /*do{
-        counter++;
-        }while( !(w[aktualislepes_j+1*counter][aktualislepes_i]->getallapot()==szemely &&aktualislepes_j+1<=w.size()) ||counter!=5);*/
+    //vízszíntes vonal
+    maxi=0;
+    for(int i=1; i<w.size(); i++)
+    {
+        if(w[aktualislepes_j][i-1]->getallapot()==szemely)
+            maxi++;
+        if(counter<maxi)
+            counter=maxi;
+        if(w[aktualislepes_j][i-1]->getallapot()!=szemely)
+            maxi=0;
+    }
+    //balról jobbra lefell menő átló
+    maxi=0;
+    if(aktualislepes_j>aktualislepes_i)
+    {
+        //int aktualisj=aktualislepes_j-aktualislepes_i+1;
+        int aktualisi=0+1;
+        for(int aktualisj=aktualislepes_j-aktualislepes_i+1; aktualisj<w.size(); aktualisj++)
+        {
+            if(w[aktualisj-1][aktualisi-1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+            if(w[aktualisj-1][aktualisi-1]->getallapot()!=szemely)
+                maxi=0;
+            aktualisi++;
+            //aktualisj++;
+        }
+    }
+    else if(aktualislepes_j<aktualislepes_i)
+    {
+        int aktualisj=0+1;
+        for(int aktualisi=aktualislepes_i-aktualislepes_j+1; aktualisi<w.size(); aktualisi++)
+        {
+            if(w[aktualisj-1][aktualisi-1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+            if(w[aktualisj-1][aktualisi-1]->getallapot()!=szemely)
+                maxi=0;
+            aktualisj++;
+            //aktualisj++;
+        }
+    }
+    else
+    {
+        /*int aktualisj=0+1;
+        int aktualisi=0+1;*/
+        for(int i=1; i<w.size(); i++)
+        {
+            if(w[i-1][i-1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+            if(w[i-1][i-1]->getallapot()!=szemely)
+                maxi=0;
+            //aktualisj++;
+        }
+    }
 
-    /*if(w[aktualislepes_j+1][aktualislepes_i]->getallapot()==szemely&&aktualislepes_j+1<=w.size())
+    //balról jobbra felfelé menő átló
+    maxi=0;
+    int aktualisi=aktualislepes_i;
+    int aktualisj=aktualislepes_j;
+    while(aktualisj>0&&aktualisi<w.size())
     {
-        counter++;
+        aktualisj--;
+        aktualisi++;
     }
-    else if(w[aktualislepes_j-1][aktualislepes_i]->getallapot()==szemely&&aktualislepes_j-1>=w.size())
+    aktualisj++;
+    aktualisi--;
+    /*std::cout << aktualisj <<" "<<aktualisi<<std::endl;
+    std::cout <<std::endl;*/
+    if(aktualisi+aktualisj<w.size())
     {
-        counter++;
+        for(aktualisi; aktualisi>=0; aktualisi--)
+        {
+            if(w[aktualisj-1][aktualisi+1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+            if(w[aktualisj-1][aktualisi+1]->getallapot()!=szemely)
+                maxi=0;
+            aktualisj++;
+        }
     }
-    else if(w[aktualislepes_j][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size())
+    else
     {
-        counter++;
+        aktualisi--;
+        aktualisj++;
+        for(aktualisj; aktualisj<w.size(); aktualisj++)
+        {
+            //std::cout << aktualisj <<" "<<aktualisi<<std::endl;
+            if(w[aktualisj-1][aktualisi+1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+                //std::cout << maxi<<std::endl;
+            if(w[aktualisj-1][aktualisi+1]->getallapot()!=szemely)
+                maxi=0;
+            //std::cout << aktualisj <<" "<<aktualisi<<std::endl;
+            //std::cout << aktualisj-1 <<" "<<aktualisi+1<<std::endl;
+            aktualisi--;
+        }
+        //std::cout<<std::endl;
     }
-    else if(w[aktualislepes_j][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_i-1<=w.size())
-    {
-        counter++;
-    }
-    else if(w[aktualislepes_j+1][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size()&&aktualislepes_j+1<=w.size())
-    {
-        counter++;
-    }
-    else if(w[aktualislepes_j-1][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_i-1>=w.size()&&aktualislepes_j-1>=w.size())
-    {
-        counter++;
-
-    }
-    else if(w[aktualislepes_j+1][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_j+1<=w.size()&&aktualislepes_i-1>=w.size())
-    {
-        counter++;
-
-    }
-    else if(w[aktualislepes_j-1][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size()&&aktualislepes_j-1>=w.size())
-    {
-        counter++;
-    }*/
+    /*while(aktualisj<w.size()&&aktualisi>0)
+        {
+            std::cout << aktualisj <<" "<<aktualisi<<std::endl;
+            if(w[aktualisj-1][aktualisi+1]->getallapot()==szemely)
+                maxi++;
+            if(counter<maxi)
+                counter=maxi;
+            if(w[aktualisj-1][aktualisi+1]->getallapot()!=szemely)
+                maxi=0;
+                aktualisj++;
+                aktualisi--;
+        }*/
 }

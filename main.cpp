@@ -15,7 +15,7 @@ int main()
     while(gin>>ev){
         gout<<text("asd")<<refresh;
     }*/
-    tools amoba(15); // a pálya nagysága mindenképp nxn-es
+    tools amoba(10); // a pálya nagysága mindenképp nxn-es
     amoba.jatek();
 
     return 0;
