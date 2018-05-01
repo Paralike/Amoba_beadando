@@ -40,7 +40,15 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="checkbox.cpp" />
+		<Unit filename="checkbox.hpp" />
+		<Unit filename="gm.cpp" />
+		<Unit filename="gm.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="tools.cpp" />
+		<Unit filename="tools.hpp" />
+		<Unit filename="widget.cpp" />
+		<Unit filename="widget.hpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

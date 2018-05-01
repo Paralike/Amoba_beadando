@@ -1,0 +1,6 @@
+#ifndef GM_HPP_INCLUDED
+#define GM_HPP_INCLUDED
+
+
+
+#endif // GM_HPP_INCLUDED

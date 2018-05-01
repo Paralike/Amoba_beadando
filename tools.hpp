@@ -1,0 +1,6 @@
+#ifndef TOOLS_HPP_INCLUDED
+#define TOOLS_HPP_INCLUDED
+
+
+
+#endif // TOOLS_HPP_INCLUDED
