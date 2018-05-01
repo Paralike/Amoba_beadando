@@ -12,4 +12,6 @@ change log:
 05.01 19:35 A if feltétel hozzáadva mely felügyeli hogy na nem a táblára kattintasz ne omoljon össze. 
 
 05.01 19:55 Egymásra lépés hibája megoldva
+
+05.01 20:20 minimális bugok javítva. az egymásra lépés a játéktérről való kikattintás ütötték egymást ez megolva
  
