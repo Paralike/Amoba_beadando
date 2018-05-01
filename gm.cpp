@@ -43,11 +43,14 @@ void gm::jatek()
                         kivalasztottelemi=i;
                         kivalasztottelemj=j;
                     }
-                    if(w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
+
+                    if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
                     {
                         kivalasztottelemi=-1;
                         kivalasztottelemj=-1;
+
                     }
+
             /*for(size_t i=0; i<w.size(); i++)
                 if(w[i]->ertekel(ev.pos_x,ev.pos_y))
                     kivalasztottelem=i;*/
