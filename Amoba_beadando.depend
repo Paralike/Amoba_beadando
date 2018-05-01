@@ -1,13 +1,16 @@
 # depslib dependency file v1.0
-1525169578 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1525171267 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
 	"graphics.hpp"
 	"tools.hpp"
+	"widget.hpp"
 
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1525169270 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1525171504 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+	<fstream>
+	<iostream>
 	"graphics.hpp"
 	"gm.hpp"
 
@@ -17,7 +20,7 @@
 	"tools.hpp"
 	"graphics.hpp"
 
-1525168701 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
+1525171657 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
 	<string>
 	<vector>
 	"widget.hpp"
@@ -36,7 +39,7 @@
 	"graphics.hpp"
 	"widget.hpp"
 
-1525170041 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
+1525172287 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
 	"gm.hpp"
 	"widget.hpp"
 	"graphics.hpp"

@@ -1,13 +1,15 @@
+#include<fstream>
+#include<iostream>
 
 #include "graphics.hpp"
 #include "gm.hpp"
-#include "widget.hpp"
 
 using namespace genv;
 
 
 void gm::jatek()
 {
+    std::cout <<"a"<<std::endl;
     gout.open(XX,YY);
     event ev;
     int kivalasztottelem=-1;
