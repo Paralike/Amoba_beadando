@@ -7,8 +7,8 @@
 #include<vector>
 
 
-const int XX=400;
-const int YY=600;
+const int XX=800;
+const int YY=800;
 
 class widget {
 protected:

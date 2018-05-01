@@ -1,12 +1,14 @@
 #include <iostream>
 #include "graphics.hpp"
+#include "tools.hpp"
 
 using namespace std;
 //using namespace genv;
 
 int main()
 {
-    amoba_master amoba;
+    tools amoba;
     amoba.jatek();
+
     return 0;
 }
