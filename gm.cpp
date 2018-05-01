@@ -71,6 +71,7 @@ void gm::jatek()
                 if(w[i]->ertekel(ev.pos_x,ev.pos_y))
                     kivalasztottelem=i;*/
             //w[kivalasztottelem]->gombreac([=]() {w[0]->markival(ev);});
+            if(kivalasztottelemi!=-1){
             w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
             w[kivalasztottelemj][kivalasztottelemi]->gombreac();
             if(kivalasztottelemj!=-1&&kivalasztottelemj!=-1)
@@ -92,6 +93,7 @@ void gm::jatek()
             //szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
             //std::cout << counter<<std::endl;
             counter=0;
+            }
         }
 
         //játékmester
@@ -231,16 +233,5 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
         }
         //std::cout<<std::endl;
     }
-    /*while(aktualisj<w.size()&&aktualisi>0)
-        {
-            std::cout << aktualisj <<" "<<aktualisi<<std::endl;
-            if(w[aktualisj-1][aktualisi+1]->getallapot()==szemely)
-                maxi++;
-            if(counter<maxi)
-                counter=maxi;
-            if(w[aktualisj-1][aktualisi+1]->getallapot()!=szemely)
-                maxi=0;
-                aktualisj++;
-                aktualisi--;
-        }*/
+
 }
