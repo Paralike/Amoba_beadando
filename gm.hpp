@@ -11,7 +11,6 @@ class gm{
 protected:
     std::vector<widget*> w;
 public:
-    //virtual void esemeny(std::string tortenes);
     void jatek();
 };
 
