@@ -5,7 +5,7 @@
 #include "widget.hpp"
 
 class checkbox : public widget {
-
+    bool allapot;
 public:
     checkbox(int x, int y, int magassag, int szelesseg);
     virtual void rajzol() ;

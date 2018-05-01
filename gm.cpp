@@ -19,11 +19,11 @@ void gm::jatek()
 
         for (widget * wg : w)
         wg->rajzol();
-        if(ev.type == ev_mouse && ev.button==btn_left || (ev.button==btn_wheelup||ev.button==btn_wheeldown))
+        /*if(ev.type == ev_mouse && ev.button==btn_left || (ev.button==btn_wheelup||ev.button==btn_wheeldown))
             for(widget * wg:w)
                 if(wg->getkijelolve())
                     wg->markival(ev);
-
+*/
         if(ev.type == ev_mouse && ev.button==btn_left)
         {
             for(size_t i=0; i<w.size(); i++)
@@ -34,14 +34,13 @@ void gm::jatek()
             if(kivalasztottelem!=-1)
                 gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
         }
+
         if(kivalasztottelem!=-1)
         {
             //std::cout << w[1]->getterjeszkedve()<<std::endl;
             //w[kivalasztottelem]->gombreac([&](){w[0]->setertek(0);});
             //if(!te)
                 w[kivalasztottelem]->kap(ev);
-
-            //te=w[kivalasztottelem]->getterjeszkedve();
             for (widget * wg : w)
                 wg->rajzol();
             w[kivalasztottelem]->rajzol();
