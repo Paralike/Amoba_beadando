@@ -13,12 +13,12 @@ tools::tools(int nagysag)
 
     for(int i=0; i<nagysag; i++)
     {
-        std::vector<int >tempw;
+        std::vector<widget* >tempw;
         for(int j=0; j<nagysag; j++)
         {
-            tempw.push_back(new checkbox(5+30*j,10+30*i,30,30));
+            tempw.push_back(new checkbox(5+30*j,100+30*i,30,30));
         }
-        d.push_back(tempg);
+        w.push_back(tempw);
     }
     /*for(int i=0; i<=nagysag;i++)
         for(int j=0; j<=nagysag;j++){

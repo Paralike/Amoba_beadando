@@ -8,7 +8,7 @@
 
 using namespace genv;
 
-void szabalyfigyelo(int);
+void szabalyfigyelo(int, int, std::vector<std::vector<widget*>>,int,int&);
 void tesztfuggveny()
 {
     std::vector<std::vector<int>> d;
@@ -36,20 +36,18 @@ void tesztfuggveny()
 
 void gm::jatek()
 {
-    std::cout <<"a"<<std::endl;
+    //std::cout <<"a"<<std::endl;
     gout.open(XX,YY);
     event ev;
-    int kivalasztottelem=-1;
+    int kivalasztottelemi=-1;
+    int kivalasztottelemj=-1;
     //bool te=true; //kapcsoló ahoz hogy a lenyíló ablak egy ütemmel le legyen maradva és ezáltal ne nyissa meg az alatta lévõ widgetet ha a lenyíló ablak ütközne azzal
     /*for (widget * wg : w)
         wg->rajzol();*/
     for(size_t i=0; i<w.size(); i++)
-    {
         for(size_t j=0; j<w.size(); j++)
-        {
-            w[j][i]->rajzol()
-        }
-    }
+            w[j][i]->rajzol();
+    int counter=0;
     while(gin >> ev && ev.keycode!=key_escape)
     {
 
@@ -61,47 +59,104 @@ void gm::jatek()
         //tesztfuggveny();
         if(ev.type == ev_mouse && ev.button==btn_left)
         {
+            //Játékos
             for(size_t i=0; i<w.size(); i++)
+                for(size_t j=0; j<w.size(); j++)
+                    if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
+                    {
+                        kivalasztottelemi=i;
+                        kivalasztottelemj=j;
+                    }
+            /*for(size_t i=0; i<w.size(); i++)
                 if(w[i]->ertekel(ev.pos_x,ev.pos_y))
-                    kivalasztottelem=i;
+                    kivalasztottelem=i;*/
             //w[kivalasztottelem]->gombreac([=]() {w[0]->markival(ev);});
-            w[kivalasztottelem]->beallito(1);
-            w[kivalasztottelem]->gombreac();
-            if(kivalasztottelem!=-1)
+            w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
+            w[kivalasztottelemj][kivalasztottelemi]->gombreac();
+            if(kivalasztottelemj!=-1&&kivalasztottelemj!=-1)
                 gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
-            std::cout << kivalasztottelem<<std::endl;
-            szabalyfigyelo(kivalasztottelem);
+
+            szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,1,counter);
+            std::cout << counter<<std::endl;
             //Ai
             do
             {
-                kivalasztottelem=rand()%(w.size());
+                kivalasztottelemj=rand()%(w.size());
+                kivalasztottelemi=rand()%(w.size());
             }
-            while(w[kivalasztottelem]->getallapot()!=0);
+            while(w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0);
+            //std::cout << kivalasztottelemj<<" "<<kivalasztottelemi<<std::endl;
+            //std::cout << kivalasztottelem<<std::endl;
+            w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
 
-            std::cout << kivalasztottelem<<std::endl;
-            w[kivalasztottelem]->beallito(2);
-
-            szabalyfigyelo(kivalasztottelem);
+            szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
+            //std::cout << counter<<std::endl;
+            counter=0;
         }
 
         //játékmester
 
 
-        if(kivalasztottelem!=-1)
+        if(kivalasztottelemj!=-1)
         {
-            //std::cout << w[1]->getterjeszkedve()<<std::endl;
-            //w[kivalasztottelem]->gombreac([&](){w[0]->setertek(0);});
-            //if(!te)
-            w[kivalasztottelem]->kap(ev);
-            for (widget * wg : w)
-                wg->rajzol();
-            w[kivalasztottelem]->rajzol();
+            w[kivalasztottelemj][kivalasztottelemi]->kap(ev);
+            for(size_t i=0; i<w.size(); i++)
+                for(size_t j=0; j<w.size(); j++)
+                    w[j][i]->rajzol();
+            w[kivalasztottelemj][kivalasztottelemi]->rajzol();
         }
         gout << refresh;
     }
 }
 
-void szabalyfigyelo(int aktualislepes)
+void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vector<widget*>> w, int szemely,int &counter)
 {
+    int maxi=0;
+    for(int i=1;i<w.size();i++)
+    {
+        if(w[i-1][aktualislepes_i]->getallapot()==szemely)
+        maxi++;
+        if(w[i-1][aktualislepes_i]->getallapot()!=szemely)
 
+    }
+    if(maxi>counter)
+        counter=maxi;
+        /*do{
+        counter++;
+        }while( !(w[aktualislepes_j+1*counter][aktualislepes_i]->getallapot()==szemely &&aktualislepes_j+1<=w.size()) ||counter!=5);*/
+
+    /*if(w[aktualislepes_j+1][aktualislepes_i]->getallapot()==szemely&&aktualislepes_j+1<=w.size())
+    {
+        counter++;
+    }
+    else if(w[aktualislepes_j-1][aktualislepes_i]->getallapot()==szemely&&aktualislepes_j-1>=w.size())
+    {
+        counter++;
+    }
+    else if(w[aktualislepes_j][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size())
+    {
+        counter++;
+    }
+    else if(w[aktualislepes_j][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_i-1<=w.size())
+    {
+        counter++;
+    }
+    else if(w[aktualislepes_j+1][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size()&&aktualislepes_j+1<=w.size())
+    {
+        counter++;
+    }
+    else if(w[aktualislepes_j-1][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_i-1>=w.size()&&aktualislepes_j-1>=w.size())
+    {
+        counter++;
+
+    }
+    else if(w[aktualislepes_j+1][aktualislepes_i-1]->getallapot()==szemely&&aktualislepes_j+1<=w.size()&&aktualislepes_i-1>=w.size())
+    {
+        counter++;
+
+    }
+    else if(w[aktualislepes_j-1][aktualislepes_i+1]->getallapot()==szemely&&aktualislepes_i+1<=w.size()&&aktualislepes_j-1>=w.size())
+    {
+        counter++;
+    }*/
 }
