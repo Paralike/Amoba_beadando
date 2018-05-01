@@ -17,7 +17,6 @@ class checkbox;
 class tools: public gm
 {
     public:
-    checkbox* c;
     tools();
 
 };

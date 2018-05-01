@@ -14,7 +14,7 @@
 	"graphics.hpp"
 	"gm.hpp"
 
-1525170164 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
+1525173047 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
 	<string>
 	<vector>
 	"tools.hpp"
@@ -39,7 +39,7 @@
 	"graphics.hpp"
 	"widget.hpp"
 
-1525172287 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
+1525173081 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
 	"gm.hpp"
 	"widget.hpp"
 	"graphics.hpp"
