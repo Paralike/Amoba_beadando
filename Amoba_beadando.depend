@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1525166713 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+	<iostream>
+	"graphics.hpp"
+
+1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
+	<string>
+
