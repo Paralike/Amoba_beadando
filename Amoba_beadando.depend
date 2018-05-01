@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1525194932 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
 	"graphics.hpp"
 	"tools.hpp"
@@ -8,7 +8,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1525198499 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -16,28 +16,28 @@
 	"graphics.hpp"
 	"gm.hpp"
 
-1525180466 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
+1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
 	<string>
 	<vector>
 	"tools.hpp"
 	"graphics.hpp"
 
-1525179715 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
+1525199313 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
 	<string>
 	<vector>
 	"widget.hpp"
 
-1525176465 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
+1525199313 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
 	"graphics.hpp"
 	<string>
 	<functional>
 	<vector>
 
-1525176004 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.cpp
+1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.cpp
 	"checkbox.hpp"
 	"graphics.hpp"
 
-1525176465 /home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.hpp
+1525199313 /home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.hpp
 	"graphics.hpp"
 	"widget.hpp"
 
@@ -52,7 +52,7 @@
 	<string>
 	<functional>
 
-1525176465 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/widget.cpp
+1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/widget.cpp
 	"graphics.hpp"
 	"widget.hpp"
 	<iostream>
