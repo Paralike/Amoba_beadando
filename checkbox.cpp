@@ -24,7 +24,7 @@ bool checkbox::ertekel(int egerx, int egery,int& kivalasztottelem)
 {
     if(egerx>(_x)&&egerx<(_x+_length)&&egery>_y&&egery<(_y+_height))
         _kijelolve=true;
-    else
-        _kijelolve=false;
+    /*else
+        _kijelolve=false;*/
     return egerx>(_x)&&egerx<(_x+_length)&&egery>_y&&egery<(_y+_height);
 }
