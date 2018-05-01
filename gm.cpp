@@ -7,6 +7,7 @@
 
 using namespace genv;
 
+void szabalyfigyelo(int);
 
 void gm::jatek()
 {
@@ -24,7 +25,7 @@ void gm::jatek()
             for(widget * wg:w)
                 if(wg->getkijelolve())
                     wg->markival(ev);
-*/
+        */
         if(ev.type == ev_mouse && ev.button==btn_left)
         {
             for(size_t i=0; i<w.size(); i++)
@@ -35,17 +36,22 @@ void gm::jatek()
             w[kivalasztottelem]->gombreac();
             if(kivalasztottelem!=-1)
                 gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
-               std::cout << kivalasztottelem<<std::endl;
-        //Ai
-        do{
-        kivalasztottelem=rand()%(w.size());
-        }while(w[kivalasztottelem]->getallapot()!=0);
-        std::cout << kivalasztottelem<<std::endl;
-        w[kivalasztottelem]->beallito(2);
+            std::cout << kivalasztottelem<<std::endl;
+            szabalyfigyelo(kivalasztottelem);
+            //Ai
+            do
+            {
+                kivalasztottelem=rand()%(w.size());
+            }
+            while(w[kivalasztottelem]->getallapot()!=0);
+
+            std::cout << kivalasztottelem<<std::endl;
+            w[kivalasztottelem]->beallito(2);
+
+            szabalyfigyelo(kivalasztottelem);
         }
 
-
-
+        //játékmester
 
 
         if(kivalasztottelem!=-1)
@@ -53,11 +59,15 @@ void gm::jatek()
             //std::cout << w[1]->getterjeszkedve()<<std::endl;
             //w[kivalasztottelem]->gombreac([&](){w[0]->setertek(0);});
             //if(!te)
-                w[kivalasztottelem]->kap(ev);
+            w[kivalasztottelem]->kap(ev);
             for (widget * wg : w)
                 wg->rajzol();
             w[kivalasztottelem]->rajzol();
         }
         gout << refresh;
     }
+}
+
+void szabalyfigyelo(int aktualislepes){
+
 }
