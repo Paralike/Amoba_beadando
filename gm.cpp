@@ -43,6 +43,8 @@ void gm::jatek()
             //std::cout << "a" <<std::endl;
             nyert=false;
             teli=false;
+            jatekosfigyelo=false;
+            jatekosfigyelo2=false;
             counter=0;
             for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
@@ -75,8 +77,9 @@ void gm::jatek()
                     {
                         kivalasztottelemi=-1;
                         kivalasztottelemj=-1;
+                        jatekosfigyelo=false;
                     }
-                }
+
                 /*for(size_t i=0; i<w.size(); i++)
                     if(w[i]->ertekel(ev.pos_x,ev.pos_y))
                         kivalasztottelem=i;*/
@@ -92,33 +95,41 @@ void gm::jatek()
                     std::cout << counter<<std::endl;
                     if(counter>=5)
                         nyert=true;
+                }
+                }
+                if(!nyert&&!teli&&jatekosfigyelo2)
+                {
+                    for(size_t i=0; i<w.size(); i++)
+                        for(size_t j=0; j<w.size(); j++)
+                            if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
+                            {
+                                kivalasztottelemi=i;
+                                kivalasztottelemj=j;
+                                jatekosfigyelo=false;
+                            }
 
-                    //Ai
-                    if(!nyert&&!teli&&jatekosfigyelo2)
+                    if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
                     {
-                        for(size_t i=0; i<w.size(); i++)
-                            for(size_t j=0; j<w.size(); j++)
-                                if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
-                                {
-                                    kivalasztottelemi=i;
-                                    kivalasztottelemj=j;
-                                    jatekosfigyelo=false;
-                                }
+                        kivalasztottelemi=-1;
+                        kivalasztottelemj=-1;
+                        jatekosfigyelo=true;
+                    }
 
-                        if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
-                        {
-                            kivalasztottelemi=-1;
-                            kivalasztottelemj=-1;
-                        }
+                    /*do
+                    {
+                        kivalasztottelemj=rand()%(w.size());
+                        kivalasztottelemi=rand()%(w.size());
+                    }
+                    while(w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0);
+                    //std::cout << kivalasztottelemj<<" "<<kivalasztottelemi<<std::endl;
+                    //std::cout << kivalasztottelem<<std::endl;*/
 
-                        /*do
-                        {
-                            kivalasztottelemj=rand()%(w.size());
-                            kivalasztottelemi=rand()%(w.size());
-                        }
-                        while(w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0);
-                        //std::cout << kivalasztottelemj<<" "<<kivalasztottelemi<<std::endl;
-                        //std::cout << kivalasztottelem<<std::endl;*/
+                    if(kivalasztottelemi!=-1)
+                    {
+                        w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
+                        w[kivalasztottelemj][kivalasztottelemi]->gombreac();
+                        //gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
+
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
                         szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
                         teli=telipalya(w);
@@ -127,6 +138,7 @@ void gm::jatek()
                             nyert=true;
                         counter=0;
                     }
+
                 }
             }
 
@@ -138,9 +150,10 @@ void gm::jatek()
                 for(size_t i=0; i<w.size(); i++)
                     for(size_t j=0; j<w.size(); j++)
                         w[j][i]->rajzol();
-                w[kivalasztottelemj][kivalasztottelemi]->rajzol();
+                //w[kivalasztottelemj][kivalasztottelemi]->rajzol();
             }
             jatekosfigyelo2=jatekosfigyelo;
+
             gout << refresh;
         }
     }
@@ -152,7 +165,7 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     counter=0;
     //függőleges vonal
     int maxi=0;
-    for(int i=0; i<w.size(); i++)
+    for(size_t i=0; i<w.size(); i++)
     {
         /*if(w[i][aktualislepes_i]->getallapot()==szemely)
             maxi++;*/
@@ -166,7 +179,7 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     }
     //vízszíntes vonal
     maxi=0;
-    for(int i=0; i<w.size(); i++)
+    for(size_t i=0; i<w.size(); i++)
     {
         if(w[aktualislepes_j][i]->getallapot()==szemely)
             maxi++;
@@ -181,7 +194,7 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     {
         //int aktualisj=aktualislepes_j-aktualislepes_i+1;
         int aktualisi=0;
-        for(int aktualisj=aktualislepes_j-aktualislepes_i; aktualisj<w.size(); aktualisj++)
+        for(size_t aktualisj=aktualislepes_j-aktualislepes_i; aktualisj<w.size(); aktualisj++)
         {
 
             if(w[aktualisj][aktualisi]->getallapot()==szemely)
@@ -197,7 +210,7 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     else if(aktualislepes_j<=aktualislepes_i)
     {
         int aktualisj=0+1;
-        for(int aktualisi=aktualislepes_i-aktualislepes_j+1; aktualisi<w.size(); aktualisi++)
+        for(size_t aktualisi=aktualislepes_i-aktualislepes_j+1; aktualisi<w.size(); aktualisi++)
         {
             if(aktualisi==w.size()-1&&w[aktualisj][aktualisi]->getallapot()==szemely)
                 maxi++;
@@ -215,7 +228,7 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     {
         /*int aktualisj=0+1;
         int aktualisi=0+1;*/
-        for(int i=1; i<w.size(); i++)
+        for(size_t i=1; i<w.size(); i++)
         {
             if(w[i-1][i-1]->getallapot()==szemely)
                 maxi++;
