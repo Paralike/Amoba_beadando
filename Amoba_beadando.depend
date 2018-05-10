@@ -1,14 +1,13 @@
 # depslib dependency file v1.0
-1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1525988254 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
-	"graphics.hpp"
 	"tools.hpp"
 	"widget.hpp"
 
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1525986860 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1525989268 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>

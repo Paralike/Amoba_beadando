@@ -9,6 +9,7 @@
 using namespace genv;
 
 void szabalyfigyelo(int, int, std::vector<std::vector<widget*>>,int,int&);
+bool telipalya(std::vector<std::vector<widget*>>);
 
 void gm::jatek()
 {
@@ -25,6 +26,7 @@ void gm::jatek()
             w[j][i]->rajzol();
     int counter=0;
     bool nyert=false;
+    bool teli=false;
     while(gin >> ev && ev.keycode!=key_escape)
     {
 
@@ -38,18 +40,20 @@ void gm::jatek()
         {
             //std::cout << "a" <<std::endl;
             nyert=false;
+            teli=false;
             counter=0;
             for(size_t i=0; i<w.size(); i++)
-                for(size_t j=0; j<w.size(); j++){
+                for(size_t j=0; j<w.size(); j++)
+                {
                     w[j][i]->beallito(0);
-                    }
+                }
             gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
             for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
                     w[j][i]->rajzol();
         }
         //std::cout << nyert <<std::endl;
-        if(!nyert)
+        if(!nyert && !teli)
         {
             if(ev.type == ev_mouse && ev.button==btn_left)
             {
@@ -79,12 +83,13 @@ void gm::jatek()
                     gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
                     szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,1,counter);
+                    teli=telipalya(w);
                     std::cout << counter<<std::endl;
                     if(counter>=5)
                         nyert=true;
 
                     //Ai
-                    if(!nyert)
+                    if(!nyert&&!teli)
                     {
                         do
                         {
@@ -96,6 +101,7 @@ void gm::jatek()
                         //std::cout << kivalasztottelem<<std::endl;
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
                         szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
+                        teli=telipalya(w);
                         //std::cout << counter<<std::endl;
                         counter=0;
                     }
@@ -119,7 +125,7 @@ void gm::jatek()
 
 void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vector<widget*>> w, int szemely,int &counter)
 {
-        //std::cout << w.size() << std::endl;
+    //std::cout << w.size() << std::endl;
     counter=0;
     //függőleges vonal
     int maxi=0;
@@ -253,4 +259,18 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
         //std::cout<<std::endl;
     }
 
+}
+
+bool telipalya(std::vector<std::vector<widget*>> w)
+{
+    bool teli=true;
+    //std::cout << teli << std::endl;
+    int i=0;
+    int j=0;
+    for(size_t i=0; i<w.size(); i++)
+        for(size_t j=0; j<w.size(); j++)
+            if(w[j][i]->getallapot()==0)
+                teli=false;
+
+    return teli;
 }

@@ -1,7 +1,7 @@
 # Amoba_beadando
 Amoba játék beadandója 
 
-A játék Linux-allat íródott!
+A játék Linux-alatt íródott!
 
 change log:
 
