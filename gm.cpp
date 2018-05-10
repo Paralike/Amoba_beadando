@@ -27,6 +27,8 @@ void gm::jatek()
     int counter=0;
     bool nyert=false;
     bool teli=false;
+    bool jatekosfigyelo=false; //false = player1 true = player 2
+    bool jatekosfigyelo2=false; //false = player1 true = player 2 1 utemet hagy az egészre rá hogy ne léjenek egymásra, egy ütemen bellül
     while(gin >> ev && ev.keycode!=key_escape)
     {
 
@@ -58,20 +60,23 @@ void gm::jatek()
             if(ev.type == ev_mouse && ev.button==btn_left)
             {
                 //Játékos
-                for(size_t i=0; i<w.size(); i++)
-                    for(size_t j=0; j<w.size(); j++)
-                        if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
-                        {
-                            kivalasztottelemi=i;
-                            kivalasztottelemj=j;
-                        }
-
-                if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
+                if(!jatekosfigyelo2)
                 {
-                    kivalasztottelemi=-1;
-                    kivalasztottelemj=-1;
-                }
+                    for(size_t i=0; i<w.size(); i++)
+                        for(size_t j=0; j<w.size(); j++)
+                            if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
+                            {
+                                kivalasztottelemi=i;
+                                kivalasztottelemj=j;
+                                jatekosfigyelo=true;
+                            }
 
+                    if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
+                    {
+                        kivalasztottelemi=-1;
+                        kivalasztottelemj=-1;
+                    }
+                }
                 /*for(size_t i=0; i<w.size(); i++)
                     if(w[i]->ertekel(ev.pos_x,ev.pos_y))
                         kivalasztottelem=i;*/
@@ -89,20 +94,37 @@ void gm::jatek()
                         nyert=true;
 
                     //Ai
-                    if(!nyert&&!teli)
+                    if(!nyert&&!teli&&jatekosfigyelo2)
                     {
-                        do
+                        for(size_t i=0; i<w.size(); i++)
+                            for(size_t j=0; j<w.size(); j++)
+                                if(w[j][i]->ertekel(ev.pos_x,ev.pos_y))
+                                {
+                                    kivalasztottelemi=i;
+                                    kivalasztottelemj=j;
+                                    jatekosfigyelo=false;
+                                }
+
+                        if(kivalasztottelemi!=-1&&w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0)
+                        {
+                            kivalasztottelemi=-1;
+                            kivalasztottelemj=-1;
+                        }
+
+                        /*do
                         {
                             kivalasztottelemj=rand()%(w.size());
                             kivalasztottelemi=rand()%(w.size());
                         }
                         while(w[kivalasztottelemj][kivalasztottelemi]->getallapot()!=0);
                         //std::cout << kivalasztottelemj<<" "<<kivalasztottelemi<<std::endl;
-                        //std::cout << kivalasztottelem<<std::endl;
+                        //std::cout << kivalasztottelem<<std::endl;*/
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
                         szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
                         teli=telipalya(w);
                         //std::cout << counter<<std::endl;
+                        if(counter>=5)
+                            nyert=true;
                         counter=0;
                     }
                 }
@@ -118,6 +140,7 @@ void gm::jatek()
                         w[j][i]->rajzol();
                 w[kivalasztottelemj][kivalasztottelemi]->rajzol();
             }
+            jatekosfigyelo2=jatekosfigyelo;
             gout << refresh;
         }
     }
@@ -265,8 +288,6 @@ bool telipalya(std::vector<std::vector<widget*>> w)
 {
     bool teli=true;
     //std::cout << teli << std::endl;
-    int i=0;
-    int j=0;
     for(size_t i=0; i<w.size(); i++)
         for(size_t j=0; j<w.size(); j++)
             if(w[j][i]->getallapot()==0)
