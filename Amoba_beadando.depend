@@ -8,7 +8,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1525986860 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -27,7 +27,7 @@
 	<vector>
 	"widget.hpp"
 
-1525199313 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
+1525981779 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
 	"graphics.hpp"
 	<string>
 	<functional>

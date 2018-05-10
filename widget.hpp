@@ -32,7 +32,7 @@ public:
     virtual void gombreac(){};
     //virtual void setertek(int ert);
     virtual void sete(std::string*,std::string*){}; //e a kivalasztott vectorbeli elemek egy tombje
-    virtual std::vector<std::string> gete(){};
+ //   virtual std::vector<std::string> gete(){};
     virtual void torole(int){};
     virtual void beallito(int){};
     virtual int getallapot();
