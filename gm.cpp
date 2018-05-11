@@ -24,7 +24,10 @@ void gm::jatek()
     for(size_t i=0; i<w.size(); i++)
         for(size_t j=0; j<w.size(); j++)
             w[j][i]->rajzol();
-    int counter=0;
+    for (size_t i=0; i<3; i++)
+        static_obj[i]->rajzol();
+    int counterplayer1=0;
+    int counterplayer2=0;
     bool nyert=false;
     bool teli=false;
     bool jatekosfigyelo=false; //false = player1 true = player 2
@@ -45,7 +48,8 @@ void gm::jatek()
             teli=false;
             jatekosfigyelo=false;
             jatekosfigyelo2=false;
-            counter=0;
+            counterplayer1=0;
+            counterplayer2=0;
             for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
                 {
@@ -55,6 +59,9 @@ void gm::jatek()
             for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
                     w[j][i]->rajzol();
+            for (size_t i=0; i<3; i++)
+                static_obj[i]->rajzol();
+
         }
         //std::cout << nyert <<std::endl;
         if(!nyert && !teli)
@@ -80,22 +87,22 @@ void gm::jatek()
                         jatekosfigyelo=false;
                     }
 
-                /*for(size_t i=0; i<w.size(); i++)
-                    if(w[i]->ertekel(ev.pos_x,ev.pos_y))
-                        kivalasztottelem=i;*/
-                //w[kivalasztottelem]->gombreac([=]() {w[0]->markival(ev);});
-                if(kivalasztottelemi!=-1)
-                {
-                    w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
-                    w[kivalasztottelemj][kivalasztottelemi]->gombreac();
-                    gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
+                    /*for(size_t i=0; i<w.size(); i++)
+                        if(w[i]->ertekel(ev.pos_x,ev.pos_y))
+                            kivalasztottelem=i;*/
+                    //w[kivalasztottelem]->gombreac([=]() {w[0]->markival(ev);});
+                    if(kivalasztottelemi!=-1)
+                    {
+                        w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
+                        w[kivalasztottelemj][kivalasztottelemi]->gombreac();
+                        gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
-                    szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,1,counter);
-                    teli=telipalya(w);
-                    std::cout << counter<<std::endl;
-                    if(counter>=5)
-                        nyert=true;
-                }
+                        szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,1,counterplayer1);
+                        teli=telipalya(w);
+                        //std::cout << counterplayer1<<std::endl;
+                        if(counterplayer1>=5)
+                            nyert=true;
+                    }
                 }
                 if(!nyert&&!teli&&jatekosfigyelo2)
                 {
@@ -131,12 +138,11 @@ void gm::jatek()
                         //gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
-                        szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counter);
+                        szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counterplayer2);
                         teli=telipalya(w);
                         //std::cout << counter<<std::endl;
-                        if(counter>=5)
+                        if(counterplayer2>=5)
                             nyert=true;
-                        counter=0;
                     }
 
                 }
@@ -150,12 +156,21 @@ void gm::jatek()
                 for(size_t i=0; i<w.size(); i++)
                     for(size_t j=0; j<w.size(); j++)
                         w[j][i]->rajzol();
+                for (size_t i=0; i<3; i++)
+                    static_obj[i]->rajzol();
                 //w[kivalasztottelemj][kivalasztottelemi]->rajzol();
             }
             jatekosfigyelo2=jatekosfigyelo;
-
-            gout << refresh;
         }
+        if(counterplayer1>=5)
+        {
+            static_obj[3]->rajzol();
+        }
+        if(counterplayer2>=5)
+        {
+            static_obj[4]->rajzol();
+        }
+        gout << refresh;
     }
 }
 

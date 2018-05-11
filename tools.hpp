@@ -5,6 +5,7 @@
 #include "widget.hpp"
 #include "graphics.hpp"
 #include "checkbox.hpp"
+#include "statictext.hpp"
 
 #include<vector>
 #include<iostream>
@@ -13,9 +14,15 @@
 #include <functional>
 
 class checkbox;
+class stattex;
 
 class tools: public gm
 {
+    stattex* s1;
+    stattex* s2;
+    stattex* s3;
+    stattex* s4;
+    stattex* s5;
     public:
     tools(int);
 

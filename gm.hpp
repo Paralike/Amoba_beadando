@@ -10,6 +10,7 @@
 class gm{
 protected:
     std::vector<std::vector<widget*>> w;
+    std::vector<widget*> static_obj;
 public:
     void jatek();
 };

@@ -21,4 +21,6 @@ change log:
 
 05.11 00:21 Player 2 hozzáadva random ai eltávolítva
 
+05.11 00:51 Player 2 bug fixálva (amikor a player 2 egy olyam mezőre lépett amin már voltak akkor a pálya eltünt)
+
  
