@@ -23,4 +23,6 @@ change log:
 
 05.11 00:51 Player 2 bug fixálva (amikor a player 2 egy olyam mezőre lépett amin már voltak akkor a pálya eltünt)
 
+05.11 14:51 Jelmagyarázat hozzáadva
+
  
