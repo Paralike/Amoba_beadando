@@ -10,12 +10,11 @@
 using namespace genv;
 
 void szabalyfigyelo(int, int, std::vector<std::vector<widget*>>,int,int&);
-bool telipalya(std::vector<std::vector<widget*>>);
 
 void gm::jatek()
 {
     //std::cout <<"a"<<std::endl;
-//    jatekmester felugyelo(w.size());
+    jatekmester felugyelo(w.size());
 
     gout.open(XX,YY);
     event ev;
@@ -26,7 +25,9 @@ void gm::jatek()
         wg->rajzol();*/
     for(size_t i=0; i<w.size(); i++)
         for(size_t j=0; j<w.size(); j++)
-            w[j][i]->rajzol();
+        {
+            w[j][i]->rajzolallapottal(felugyelo.palyaallapot(j,i));
+        }
     for (size_t i=0; i<3; i++)
         static_obj[i]->rajzol();
     int counterplayer1=0;
@@ -96,12 +97,13 @@ void gm::jatek()
                     //w[kivalasztottelem]->gombreac([=]() {w[0]->markival(ev);});
                     if(kivalasztottelemi!=-1)
                     {
+                        felugyelo.palyairo(kivalasztottelemj,kivalasztottelemi,1);
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
                         w[kivalasztottelemj][kivalasztottelemi]->gombreac();
                         gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
                         szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,1,counterplayer1);
-                        teli=telipalya(w);
+                        //teli=telipalya(w);
                         //std::cout << counterplayer1<<std::endl;
                         if(counterplayer1>=5)
                             nyert=true;
@@ -136,13 +138,13 @@ void gm::jatek()
 
                     if(kivalasztottelemi!=-1)
                     {
-                        w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
+                        felugyelo.palyairo(kivalasztottelemj,kivalasztottelemi,2);
                         w[kivalasztottelemj][kivalasztottelemi]->gombreac();
                         //gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
                         w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
                         szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,w,2,counterplayer2);
-                        teli=telipalya(w);
+                        //teli=telipalya(w);
                         //std::cout << counter<<std::endl;
                         if(counterplayer2>=5)
                             nyert=true;
@@ -158,7 +160,9 @@ void gm::jatek()
                 w[kivalasztottelemj][kivalasztottelemi]->kap(ev);
                 for(size_t i=0; i<w.size(); i++)
                     for(size_t j=0; j<w.size(); j++)
-                        w[j][i]->rajzol();
+                    {
+                        w[j][i]->rajzolallapottal(felugyelo.palyaallapot(j,i));
+                    }
                 for (size_t i=0; i<3; i++)
                     static_obj[i]->rajzol();
                 //w[kivalasztottelemj][kivalasztottelemi]->rajzol();
@@ -314,16 +318,4 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     }
 
 }
-bool telipalya(std::vector<std::vector<widget*>> w)
-{
-    bool teli=true;
-    //std::cout << teli << std::endl;
-    for(size_t i=0; i<w.size(); i++)
-        for(size_t j=0; j<w.size(); j++)
-            if(w[j][i]->getallapot()==0)
-                teli=false;
-
-    return teli;
-}
-
 

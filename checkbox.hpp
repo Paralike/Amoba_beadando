@@ -8,11 +8,11 @@ class checkbox : public widget {
 
 public:
     checkbox(int x, int y, int magassag, int szelesseg);
-    virtual void rajzol() ;
+    virtual void rajzol(){} ;
     virtual bool ertekel(int, int );
     void kap(genv::event ev){};
     void beallito(int);
-
+    void rajzolallapottal(int);
 };
 
 

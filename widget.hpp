@@ -36,6 +36,8 @@ public:
     virtual void torole(int){};
     virtual void beallito(int){};
     virtual int getallapot();
+    //csak ehhez a feladathoz
+    virtual void rajzolallapottal(int){};
 };
 
 #endif // WIDGET_HPP_INCLUDED

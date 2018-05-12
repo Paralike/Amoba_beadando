@@ -25,4 +25,7 @@ change log:
 
 05.11 14:51 Jelmagyarázat hozzáadva
 
+05.12 10:25 Checkbox kiíratása jatekmester információi lapján úgy hogy nem használja a saját állapotát
+
+
  

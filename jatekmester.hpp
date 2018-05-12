@@ -5,9 +5,11 @@
 
 
 class jatekmester{
+    std::vector<std::vector<int>> palya;
 public:
-std::vector<std::vector<int>> palya;
 jatekmester(int);
+void palyairo(int, int, int);
+int palyaallapot(int, int);
 bool telipalya();
 };
 

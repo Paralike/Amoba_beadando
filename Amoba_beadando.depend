@@ -7,7 +7,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1526110935 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1526113282 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -22,22 +22,22 @@
 	"tools.hpp"
 	"graphics.hpp"
 
-1526040816 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
+1526113282 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
 	<string>
 	<vector>
 	"widget.hpp"
 
-1525981779 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
+1526113282 /home/adam/Documents/Prog/bead3/Amoba_beadando/widget.hpp
 	"graphics.hpp"
 	<string>
 	<functional>
 	<vector>
 
-1525199313 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.cpp
+1526112275 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.cpp
 	"checkbox.hpp"
 	"graphics.hpp"
 
-1525199313 /home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.hpp
+1526113403 /home/adam/Documents/Prog/bead3/Amoba_beadando/checkbox.hpp
 	"graphics.hpp"
 	"widget.hpp"
 
@@ -68,10 +68,11 @@
 	"widget.hpp"
 	<string>
 
-1526110935 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.cpp
+1526112289 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.cpp
 	"jatekmester.hpp"
 	<vector>
+	<iostream>
 
-1526110935 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
+1526112275 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
 	<vector>
 
