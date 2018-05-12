@@ -11,6 +11,7 @@ jatekmester(int);
 void palyairo(int, int, int);
 int palyaallapot(int, int);
 bool telipalya();
+void szabalyfigyelo(int, int,int,int&);
 };
 
 #endif // JATEKMESTER_HPP_INCLUDED
