@@ -29,5 +29,7 @@ change log:
 
 05.12 11:04 Már a jatátékmester tartja számon hogy ki jön és ki nem léphet (viszont az F5-ös frissítés nem működik megfelelően)
 
+05.12 11:11 Az F5-ös újrakezdés már működik
+
 
  

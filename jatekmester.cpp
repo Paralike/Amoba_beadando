@@ -189,3 +189,9 @@ void jatekmester::figyelo_allito(std::string mit,bool mire){
     if(mit=="jatekosfigyelo2")
         jatekosfigyelo2=mire;
 }
+
+void jatekmester::torlo(){
+    for(size_t i=0; i<palya.size(); i++)
+        for(size_t j=0; j<palya.size(); j++)
+            palya[j][i]=0;
+}

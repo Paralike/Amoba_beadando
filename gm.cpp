@@ -50,6 +50,7 @@ void gm::jatek()
             felugyelo.figyelo_allito("jatekosfigyelo2",false);
             counterplayer1=0;
             counterplayer2=0;
+            felugyelo.torlo();
             /*for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
                 {

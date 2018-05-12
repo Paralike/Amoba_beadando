@@ -17,6 +17,7 @@ bool telipalya();
 void szabalyfigyelo(int, int,int,int&);
 bool korfigyelo(std::string);
 void figyelo_allito(std::string,bool);
+void torlo();
 };
 
 #endif // JATEKMESTER_HPP_INCLUDED
