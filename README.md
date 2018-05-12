@@ -3,6 +3,10 @@ Amoba játék beadandója
 
 A játék Linux-alatt íródott!
 
+NOTE: A kódban van egy két olyan szám amely eleinte "magic number"-nek néz ki viszont megléte teljesen reális. 
+Ilyen páldául a static_obj kiíratásánál a 3-as szám. Itt azért nem vezetek be erre változót mivel mindig is az első 3 vektrom fog olyat atartalmazni ami mindig is kelleni fog.
+Ilyenek a tájékoztató jellegű widgetek. Minthogy ki milyen színnel van. Továbbá ezen vektor megcímzése statikusan működik mivel sorrendjük nem változhat a játék során.
+
 change log:
 
 05.01 14:10 actualis elem hozzáava mely figyeli hogy az adott mező kié
