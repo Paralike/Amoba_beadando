@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <string>
 
 jatekmester::jatekmester(int meret){
 
@@ -175,3 +176,16 @@ void jatekmester::szabalyfigyelo(int aktualislepes_j,int aktualislepes_i, int sz
     }
 }
 
+bool jatekmester::korfigyelo(std::string le){
+    if(le=="jatekosfigyelo")
+        return jatekosfigyelo;
+    else
+        return jatekosfigyelo2;
+}
+
+void jatekmester::figyelo_allito(std::string mit,bool mire){
+    if(mit=="jatekosfigyelo")
+        jatekosfigyelo=mire;
+    if(mit=="jatekosfigyelo2")
+        jatekosfigyelo2=mire;
+}

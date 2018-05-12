@@ -25,7 +25,9 @@ change log:
 
 05.11 14:51 Jelmagyarázat hozzáadva
 
-05.12 10:25 Checkbox kiíratása jatekmester információi lapján úgy hogy nem használja a saját állapotát
+05.12 10:25 Checkbox rajzolása jatekmester információi lapján úgy hogy nem használja a saját állapotát
+
+05.12 11:04 Már a jatátékmester tartja számon hogy ki jön és ki nem léphet (viszont az F5-ös frissítés nem működik megfelelően)
 
 
  
