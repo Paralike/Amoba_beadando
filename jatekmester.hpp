@@ -14,6 +14,7 @@ class jatekmester{
     int nyertes=0;
 public:
 jatekmester(int);
+jatekmester();
 void palyairo(int, int, int);
 int palyaallapot(int, int);
 bool telipalya();

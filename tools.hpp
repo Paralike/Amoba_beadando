@@ -6,6 +6,7 @@
 #include "graphics.hpp"
 #include "checkbox.hpp"
 #include "statictext.hpp"
+#include "nyomogomb.hpp"
 
 #include<vector>
 #include<iostream>
@@ -15,6 +16,7 @@
 
 class checkbox;
 class stattex;
+class nyomogomb;
 
 class tools: public gm
 {
@@ -24,8 +26,11 @@ class tools: public gm
     stattex* s4;
     stattex* s5;
     stattex* s6;
+    nyomogomb* g1;
+    int mer;
     public:
     tools(int);
+    void reaction(int );
 
 };
 

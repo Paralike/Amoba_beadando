@@ -47,6 +47,8 @@
 		<Unit filename="jatekmester.cpp" />
 		<Unit filename="jatekmester.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="nyomogomb.cpp" />
+		<Unit filename="nyomogomb.hpp" />
 		<Unit filename="statictext.cpp" />
 		<Unit filename="statictext.hpp" />
 		<Unit filename="tools.cpp" />
