@@ -5,6 +5,7 @@
 
 #include "graphics.hpp"
 #include "gm.hpp"
+#include "jatekmester.hpp"
 
 using namespace genv;
 
@@ -14,6 +15,8 @@ bool telipalya(std::vector<std::vector<widget*>>);
 void gm::jatek()
 {
     //std::cout <<"a"<<std::endl;
+//    jatekmester felugyelo(w.size());
+
     gout.open(XX,YY);
     event ev;
     int kivalasztottelemi=-1;
@@ -311,7 +314,6 @@ void szabalyfigyelo(int aktualislepes_j,int aktualislepes_i,std::vector<std::vec
     }
 
 }
-
 bool telipalya(std::vector<std::vector<widget*>> w)
 {
     bool teli=true;
@@ -323,3 +325,5 @@ bool telipalya(std::vector<std::vector<widget*>> w)
 
     return teli;
 }
+
+

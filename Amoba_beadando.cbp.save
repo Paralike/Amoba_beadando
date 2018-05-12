@@ -44,6 +44,9 @@
 		<Unit filename="checkbox.hpp" />
 		<Unit filename="gm.cpp" />
 		<Unit filename="gm.hpp" />
+		<Unit filename="jatekmester" />
+		<Unit filename="jatekmester.cpp" />
+		<Unit filename="jatekmester.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="statictext.cpp" />
 		<Unit filename="statictext.hpp" />
