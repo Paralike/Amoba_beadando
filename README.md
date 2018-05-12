@@ -31,5 +31,7 @@ change log:
 
 05.12 11:11 Az F5-ös újrakezdés már működik
 
+05.12 11:57 Jatékmester teljesen felálltva, a gm-állapotot már nem tartalamaz viszont a jatekmester mindent. 
+
 
  

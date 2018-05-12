@@ -23,6 +23,7 @@ class tools: public gm
     stattex* s3;
     stattex* s4;
     stattex* s5;
+    stattex* s6;
     public:
     tools(int);
 

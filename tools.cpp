@@ -26,11 +26,13 @@ tools::tools(int nagysag)
 
     s4 = new stattex(150,70,50,30,"Player1 nyert");
     s5 = new stattex(150,70,50,30,"Player2 nyert");
+    s6 = new stattex(150,70,50,30,"Dontetlen");
     static_obj.push_back(s1);
     static_obj.push_back(s2);
     static_obj.push_back(s3);
     static_obj.push_back(s4);
     static_obj.push_back(s5);
+    static_obj.push_back(s6);
     /*for(int i=0; i<=nagysag;i++)
         for(int j=0; j<=nagysag;j++){
             //w[j][i]=new checkbox(5+30*j,10+30*i,30,30);

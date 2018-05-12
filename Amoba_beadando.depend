@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1525989296 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1526117453 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
 	"tools.hpp"
 	"widget.hpp"
@@ -7,7 +7,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1526116204 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1526118852 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -16,7 +16,7 @@
 	"gm.hpp"
 	"jatekmester.hpp"
 
-1526042979 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
+1526118728 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
 	<string>
 	<vector>
 	"tools.hpp"
@@ -41,7 +41,7 @@
 	"graphics.hpp"
 	"widget.hpp"
 
-1526042834 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
+1526118091 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
 	"gm.hpp"
 	"widget.hpp"
 	"graphics.hpp"
@@ -68,13 +68,13 @@
 	"widget.hpp"
 	<string>
 
-1526115796 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.cpp
+1526118026 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.cpp
 	"jatekmester.hpp"
 	<vector>
 	<iostream>
 	<string>
 
-1526116204 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
+1526118728 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
 	<vector>
 	<string>
 

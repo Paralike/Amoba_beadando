@@ -1,11 +1,11 @@
-
 #include"jatekmester.hpp"
 
 #include <vector>
 #include <iostream>
 #include <string>
 
-jatekmester::jatekmester(int meret){
+jatekmester::jatekmester(int meret)
+{
 
     for(int i=0; i<meret; i++)
     {
@@ -24,9 +24,7 @@ void jatekmester::palyairo(int j, int i,int szemely)
 bool jatekmester::telipalya()
 {
 
-    bool teli=true;
-
-    //std::cout << palya.size() << std::endl;
+    teli=true;
     for(size_t i=0; i<palya.size(); i++)
         for(size_t j=0; j<palya.size(); j++)
             if(palya[j][i]==0)
@@ -35,14 +33,15 @@ bool jatekmester::telipalya()
     return teli;
 }
 
-int jatekmester::palyaallapot(int j, int i){
+int jatekmester::palyaallapot(int j, int i)
+{
     return palya[j][i];
 }
 
-void jatekmester::szabalyfigyelo(int aktualislepes_j,int aktualislepes_i, int szemely,int &counter)
+void jatekmester::szabalyfigyelo(int aktualislepes_j,int aktualislepes_i, int szemely)
 {
     //std::cout << w.size() << std::endl;
-    counter=0;
+    int counter=0;
     //függőleges vonal
     int maxi=0;
     for(size_t i=0; i<palya.size(); i++)
@@ -174,24 +173,40 @@ void jatekmester::szabalyfigyelo(int aktualislepes_j,int aktualislepes_i, int sz
         }
         //std::cout<<std::endl;
     }
+    if(counter>=5)
+        nyert=true;
+    else
+        nyert=false;
 }
 
-bool jatekmester::korfigyelo(std::string le){
+bool jatekmester::korfigyelo(std::string le)
+{
     if(le=="jatekosfigyelo")
         return jatekosfigyelo;
     else
         return jatekosfigyelo2;
 }
 
-void jatekmester::figyelo_allito(std::string mit,bool mire){
+void jatekmester::figyelo_allito(std::string mit,bool mire)
+{
     if(mit=="jatekosfigyelo")
         jatekosfigyelo=mire;
     if(mit=="jatekosfigyelo2")
         jatekosfigyelo2=mire;
 }
 
-void jatekmester::torlo(){
+void jatekmester::torlo()
+{
     for(size_t i=0; i<palya.size(); i++)
         for(size_t j=0; j<palya.size(); j++)
             palya[j][i]=0;
+}
+
+bool jatekmester::getnyert()
+{
+    return nyert;
+}
+
+void jatekmester::torolnyert(){
+    nyert=false;
 }

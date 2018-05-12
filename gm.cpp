@@ -28,10 +28,9 @@ void gm::jatek()
             w[j][i]->rajzolallapottal(felugyelo.palyaallapot(j,i));
     for (size_t i=0; i<3; i++)
         static_obj[i]->rajzol();
-    int counterplayer1=0;
-    int counterplayer2=0;
-    bool nyert=false;
-    bool teli=false;
+    //int counterplayer1=0;
+    //int counterplayer2=0;
+    //bool nyert=false;
     while(gin >> ev && ev.keycode!=key_escape)
     {
 
@@ -40,16 +39,16 @@ void gm::jatek()
                 if(wg->getkijelolve())
                     wg->markival(ev);
         */
-        //tesztfuggveny();
         if(ev.type == ev_key && ev.keycode==key_f5)
         {
             //std::cout << "a" <<std::endl;
-            nyert=false;
-            teli=false;
+            //nyert=false;
+            //teli=false;
             felugyelo.figyelo_allito("jatekosfigyelo",false);
             felugyelo.figyelo_allito("jatekosfigyelo2",false);
-            counterplayer1=0;
-            counterplayer2=0;
+            felugyelo.torolnyert();
+            //counterplayer1=0;
+            //counterplayer2=0;
             felugyelo.torlo();
             /*for(size_t i=0; i<w.size(); i++)
                 for(size_t j=0; j<w.size(); j++)
@@ -65,7 +64,7 @@ void gm::jatek()
 
         }
         //std::cout << nyert <<std::endl;
-        if(!nyert && !teli)
+        if(!felugyelo.getnyert() && !felugyelo.telipalya())
         {
             if(ev.type == ev_mouse && ev.button==btn_left)
             {
@@ -95,18 +94,18 @@ void gm::jatek()
                     if(kivalasztottelemi!=-1)
                     {
                         felugyelo.palyairo(kivalasztottelemj,kivalasztottelemi,1);
-                        w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
+                        //w[kivalasztottelemj][kivalasztottelemi]->beallito(1);
                         w[kivalasztottelemj][kivalasztottelemi]->gombreac();
                         gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
-                        felugyelo.szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,1,counterplayer1);
-                        teli=felugyelo.telipalya();
+                        felugyelo.szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,1);
+                        //teli=felugyelo.telipalya();
                         //std::cout << counterplayer1<<std::endl;
-                        if(counterplayer1>=5)
-                            nyert=true;
+                        /*if(counterplayer1>=5)
+                            nyert=true;*/
                     }
                 }
-                if(!nyert&&!teli&&felugyelo.korfigyelo(" "))
+                if(!felugyelo.getnyert()&&!felugyelo.telipalya()&&felugyelo.korfigyelo(" "))
                 {
                     for(size_t i=0; i<w.size(); i++)
                         for(size_t j=0; j<w.size(); j++)
@@ -130,12 +129,12 @@ void gm::jatek()
                         w[kivalasztottelemj][kivalasztottelemi]->gombreac();
                         //gout << move_to(0,0)<<color(0,0,0)<<box(XX,YY)<<color(255,255,255);
 
-                        w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
-                        felugyelo.szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,2,counterplayer2);
-                        teli=felugyelo.telipalya();
+                        //w[kivalasztottelemj][kivalasztottelemi]->beallito(2);
+                        felugyelo.szabalyfigyelo(kivalasztottelemj,kivalasztottelemi,2);
+                        //teli=felugyelo.telipalya();
                         //std::cout << counter<<std::endl;
-                        if(counterplayer2>=5)
-                            nyert=true;
+                        /*if(counterplayer2>=5)
+                            nyert=true;*/
                     }
 
                 }
@@ -148,23 +147,24 @@ void gm::jatek()
                 w[kivalasztottelemj][kivalasztottelemi]->kap(ev);
                 for(size_t i=0; i<w.size(); i++)
                     for(size_t j=0; j<w.size(); j++)
-                    {
                         w[j][i]->rajzolallapottal(felugyelo.palyaallapot(j,i));
-                    }
+
                 for (size_t i=0; i<3; i++)
                     static_obj[i]->rajzol();
                 //w[kivalasztottelemj][kivalasztottelemi]->rajzol();
             }
             felugyelo.figyelo_allito("jatekosfigyelo2",felugyelo.korfigyelo("jatekosfigyelo"));
         }
-        if(counterplayer1>=5)
+        if(felugyelo.getnyert())
         {
-            static_obj[3]->rajzol();
+            if(felugyelo.palyaallapot(kivalasztottelemj, kivalasztottelemi)==1)
+                static_obj[3]->rajzol();
+            if(felugyelo.palyaallapot(kivalasztottelemj, kivalasztottelemi)==2)
+                static_obj[4]->rajzol();
         }
-        if(counterplayer2>=5)
-        {
-            static_obj[4]->rajzol();
-        }
+        if(felugyelo.telipalya())
+            static_obj[5]->rajzol();
+
         gout << refresh;
     }
 }
