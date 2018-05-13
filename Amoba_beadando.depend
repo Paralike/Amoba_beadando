@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1526117453 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1526224926 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
 	"tools.hpp"
 	"widget.hpp"
