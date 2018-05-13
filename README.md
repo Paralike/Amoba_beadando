@@ -37,5 +37,7 @@ change log:
 
 05.12 11:57 Jatékmester teljesen felálltva, a gm-állapotot már nem tartalamaz viszont a jatekmester mindent. 
 
+05.12 17:20 refresh gomb hozzáadva
+
 
  

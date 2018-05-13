@@ -9,7 +9,7 @@ using namespace std;
 
 int main()
 {
-    tools amoba(10); // a pálya nagysága mindenképp nxn-es
+    tools amoba(15); // a pálya nagysága mindenképp nxn-es
     amoba.jatek();
 
     return 0;

@@ -7,7 +7,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1526161746 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1526224757 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -17,7 +17,7 @@
 	"gm.hpp"
 	"jatekmester.hpp"
 
-1526162203 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
+1526224896 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
 	<string>
 	<vector>
 	"tools.hpp"

@@ -21,11 +21,11 @@ tools::tools(int nagysag)
     }
     s1 = new stattex(10,30,50,30,"player1: Feher");
     s2 = new stattex(150,30,50,30,"player2: Piros");
-    s3 = new stattex(300,30,50,30,"Uj jatek: F5");
+    s3 = new stattex(300,30,50,30,"Uj jatek: F5 Vagy!");
     s4 = new stattex(150,70,50,30,"Player1 nyert");
     s5 = new stattex(150,70,50,30,"Player2 nyert");
     s6 = new stattex(150,70,50,30,"Dontetlen");
-    g1 = new nyomogomb(370,40,30,80,"refresh",[this](){this->reaction(1);});
+    g1 = new nyomogomb(300,50,30,80,"refresh",[this](){this->reaction(1);});
     static_obj.push_back(s1);
     static_obj.push_back(s2);
     static_obj.push_back(s3);

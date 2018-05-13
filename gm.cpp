@@ -65,14 +65,7 @@ void gm::jatek()
             frissit(felugyelo);
 
         }
-        if(ev.type == ev_mouse && ev.button==btn_left)
-        {
-            if(static_obj[3]->ertekel(ev.pos_x,ev.pos_y))
-            {
-                static_obj[3]->gombreac();
-                frissit(felugyelo);
-            }
-        }
+
         //std::cout << nyert <<std::endl;
         if(!felugyelo.getnyert() && !felugyelo.telipalya())
         {
@@ -159,6 +152,14 @@ void gm::jatek()
                 //w[kivalasztottelemj][kivalasztottelemi]->rajzol();
             }
             felugyelo.figyelo_allito("jatekosfigyelo2",felugyelo.korfigyelo("jatekosfigyelo"));
+        }
+        if(ev.type == ev_mouse && ev.button==btn_left)
+        {
+            if(static_obj[3]->ertekel(ev.pos_x,ev.pos_y))
+            {
+                static_obj[3]->gombreac();
+                frissit(felugyelo);
+            }
         }
         if(felugyelo.getnyert())
         {
