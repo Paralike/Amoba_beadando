@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1526224926 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
+1526237932 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/main.cpp
 	<iostream>
 	"tools.hpp"
 	"widget.hpp"
@@ -7,7 +7,7 @@
 1297551960 /home/adam/Downloads/linux_osx/graphics.hpp
 	<string>
 
-1526224757 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
+1526237932 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/gm.cpp
 	<fstream>
 	<iostream>
 	<cstdlib>
@@ -17,12 +17,12 @@
 	"gm.hpp"
 	"jatekmester.hpp"
 
-1526224896 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
+1526237932 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/tools.cpp
 	<string>
 	<vector>
 	"tools.hpp"
 
-1526162393 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
+1526237932 /home/adam/Documents/Prog/bead3/Amoba_beadando/gm.hpp
 	<string>
 	<vector>
 	"widget.hpp"
@@ -43,7 +43,7 @@
 	"graphics.hpp"
 	"widget.hpp"
 
-1526162672 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
+1526237932 /home/adam/Documents/Prog/bead3/Amoba_beadando/tools.hpp
 	"gm.hpp"
 	"widget.hpp"
 	"graphics.hpp"
@@ -77,17 +77,17 @@
 	<iostream>
 	<string>
 
-1526155932 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
+1526237932 /home/adam/Documents/Prog/bead3/Amoba_beadando/jatekmester.hpp
 	<vector>
 	<string>
 
-1526159107 /home/adam/Documents/Prog/bead3/Amoba_beadando/nyomogomb.hpp
+1526237932 /home/adam/Documents/Prog/bead3/Amoba_beadando/nyomogomb.hpp
 	<string>
 	<functional>
 	"widget.hpp"
 	"tools.hpp"
 
-1526158995 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/nyomogomb.cpp
+1526237932 source:/home/adam/Documents/Prog/bead3/Amoba_beadando/nyomogomb.cpp
 	"nyomogomb.hpp"
 	"graphics.hpp"
 	<vector>

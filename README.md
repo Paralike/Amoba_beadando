@@ -39,5 +39,6 @@ change log:
 
 05.12 17:20 refresh gomb hozzáadva
 
+05.13 21:00 Refresh gomb bug kijavítva
 
  
