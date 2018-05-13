@@ -1,6 +1,8 @@
 # Amoba_beadando
 Amoba játék beadandója 
 
+Készítette: Steiner Ádám (HF4QB2)
+
 A játék Linux-alatt íródott!
 
 NOTE: A kódban van egy két olyan szám amely eleinte "magic number"-nek néz ki viszont megléte teljesen reális. 
